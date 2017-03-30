@@ -1,11 +1,10 @@
-class CreateHikes < ActiveRecord::Migration
+class CreateTableHikes < ActiveRecord::Migration[5.0]
   def change
     create_table :hikes do |t|
-      t.text :trail_name
-      t.float :duration
-      t.text :description
+      t.string :trail_name
       t.integer :category_id
       t.integer :location_id
       t.timestamps
+    end
   end
 end

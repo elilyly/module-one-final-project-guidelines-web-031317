@@ -5,7 +5,7 @@ require 'pry'
 class Adapters
   class TrailsApi
 
-    BASE_SEARCH_QUERIES = ['city', 'state', 'activity_type_name']
+    BASE_SEARCH_QUERIES = ['city', 'state', 'activity_type_name', ]
     BASE_URL = "https://trailapi-trailapi.p.mashape.com/"
 
     def fetch
@@ -16,6 +16,8 @@ class Adapters
         "Accept" => "text/plain"
       })
       JSON.parse(response.body)
+      #binding.pry
+
     end
 
     def format_data
@@ -30,32 +32,8 @@ class Adapters
         else
           category = "hiking"
         end
-        {name: name, state: state, category:  category}
+        {trail_name: name, state: state, category:  category}
       end
     end
-#
-# #hikes
-#     trail_name
-#     duration
-#     description
-#     category_id
-#     location_id
-# #locations
-#     city
-#     state
-# #category
-#     activity_type_name
-
-    def seed_location_table(data)
-      trail_name = place["activities"][0]["name"]
-      city = place["city"]
-      state = place["state"]
-    end
-
-    def seed_database
-      data = format_data
-      seed_location_table(data)
-    end
-
   end
 end
