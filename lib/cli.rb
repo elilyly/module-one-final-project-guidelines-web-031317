@@ -1,4 +1,4 @@
-class Application
+
   def welcome
     puts "Hey! Welcome to Find A Hike!"
   end
@@ -8,10 +8,9 @@ class Application
     gets.chomp
   end
 
-  def get_activity_from_users
+  def get_activity_from_user
     puts "Which activity would you like your adventure to be?"
     puts "Please choose from the following:"
     puts "snow sports, mountain biking, caving, camping or hiking"
     gets.chomp
   end
-end

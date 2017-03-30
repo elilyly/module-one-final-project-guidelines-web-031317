@@ -26,13 +26,15 @@ class Adapters
       response["places"].map do |place|
         name = place["name"]
         state = place["state"]
+        city = place["city"]
+        description = place["description"]
 
         if place["activities"][0]
           category = place["activities"][0]["activity_type_name"]
         else
           category = "hiking"
         end
-        {trail_name: name, state: state, category:  category}
+        {trail_name: name, state: state, category:  category, city: city, description: description}
       end
     end
   end
