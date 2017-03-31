@@ -3,24 +3,28 @@ require_relative "../lib/cli.rb"
 
 
   welcome
-  #state_name = get_starting_location_from_user
+
   query_term = ''
   while query_term != 'exit'
     query_term = get_activity_from_user
+    location_query = get_starting_location_from_user
     if query_term == "exit"
       break
     else
     # category = Category.find_by('activity_type' => query_term)
     # hike = Hike.find_by('category_id' => category.id)
-    category = Category.where('activity_type like ?', query_term).first
-    hike = Hike.find_by('category_id' => category.id)
+    locations = Location.where('state like ?', location_query).pluck(:id)
+    category = Category.where('activity_type like ?', query_term).pluck(:id)
+    hikes = Hike.where(location_id:locations,category_id:category)
     # Client.where("orders_count = ?", params[:orders])
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "Trail Name: #{hike.trail_name}\n\n"
-    puts "Location: #{hike.location.city}, #{hike.location.state}"
-    puts "Length of trail: #{hike.length} miles"
-    puts "Description: #{hike.description}\n\n"
+    hikes.each do |hike|
+      puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+      puts "Trail Name: #{hike.trail_name}\n\n"
+      puts "Location: #{hike.location.city}, #{hike.location.state}"
+      puts "Length of trail: #{hike.length} miles"
+      puts "Description: #{hike.description}\n\n"
+    end
     end
   end
   puts "Enjoy your adventure!"
