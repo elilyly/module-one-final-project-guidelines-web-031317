@@ -10,16 +10,20 @@ require_relative "../lib/cli.rb"
     if query_term == "exit"
       break
     else
-    category = Category.find_by('activity_type' => query_term)
+    # category = Category.find_by('activity_type' => query_term)
+    # hike = Hike.find_by('category_id' => category.id)
+    category = Category.where('activity_type like ?', query_term).first
     hike = Hike.find_by('category_id' => category.id)
-    puts "#{hike.trail_name}
-    #{hike.length}
-    #{hike.description}"
+    # Client.where("orders_count = ?", params[:orders])
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "Trail Name: #{hike.trail_name}\n\n"
+    puts "Location: #{hike.location.city}, #{hike.location.state}"
+    puts "Length of trail: #{hike.length} miles"
+    puts "Description: #{hike.description}\n\n"
     end
   end
-  puts "Thank you!"
-
-
+  puts "Enjoy your adventure!"
 
 #output goes here
 # welcome the user
@@ -50,5 +54,3 @@ def data_input(response)
     end
   end
 end
-
-#data_input(response)
