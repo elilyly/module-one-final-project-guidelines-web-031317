@@ -14,6 +14,8 @@
     puts "Which activity would you like your adventure to be?"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "Please choose from the following:"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "snow sports, mountain biking, caving, camping or hiking"
     gets.strip
+    
   end

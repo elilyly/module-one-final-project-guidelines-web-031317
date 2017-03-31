@@ -11,37 +11,39 @@ require_relative "../lib/cli.rb"
     if query_term == "exit"
       break
     else
-    # category = Category.find_by('activity_type' => query_term)
-    # hike = Hike.find_by('category_id' => category.id)
     locations = Location.where('state like ?', location_query).pluck(:id)
     category = Category.where('activity_type like ?', query_term).pluck(:id)
     hikes = Hike.where(location_id:locations,category_id:category)
-    # Client.where("orders_count = ?", params[:orders])
     hikes.each do |hike|
       puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-      puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-      puts "Trail Name: #{hike.trail_name}\n\n"
+      puts "Trail Name: #{hike.trail_name}"
+      puts "                                                   "
       puts "Location: #{hike.location.city}, #{hike.location.state}"
       puts "Length of trail: #{hike.length} miles"
-      puts "Description: #{hike.description}\n\n"
+      puts "Description: #{hike.description}"
+      puts "                                                   "
     end
     end
   end
-  puts "Enjoy your adventure!"
+   puts "Enjoy your adventure!"
+  # puts"$             /^\/^\                                              $"
+  # puts"$           _|__|  O|                                             $"
+  # puts"$ \/     /~     \_/ \                                             $"
+  # puts"$  \____|__________/  \                                           $"
+  # puts"$        \_______      \                                          $"
+  # puts"$                `\     \                  \                      $"
+  # puts"$                  |     |                  \                     $"
+  # puts"$                 /      /                    \                   $"
+  # puts"$                /     /                       \                  $"
+  # puts"$              /      /                         \ \               $"
+  # puts"$             /     /                            \  \             $"
+  # puts"$           /     /             _----_            \   \           $"
+  # puts"$         /     /           _-~      ~-_          |   |           $"
+  # puts"$        (      (        _-~    _--_    ~-_      _/   |           $"
+  # puts"$         \      ~-____-~     _-    ~-_~    ~-_-~     /           $"
+  # puts"$           ~-           _-~_          -_~       _-~    - jurcy -  $"
+  # puts"$             ~--______-~                 ~-___-~                 $"
 
-#output goes here
-# welcome the user
-# prompt them for input
-# call the api
-# parse the response based on the user input
-# client = Adapters::TrailsApi.new
-# response = client.fetch
-# client.fetch
-# binding.pry
-# response.each do |h|
-#   temp_location = Location.find_by_state(h[:state])
-#   Hike.create({:trail_name => h[:trail_name], :location => temp_location})
-# end
 def data_input(response)
   cities = response['places']
   cities.each do |location|

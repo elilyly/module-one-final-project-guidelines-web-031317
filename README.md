@@ -1,25 +1,29 @@
-# Module One Final Project Guidelines
+#Find an Adventure!!
 
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
+~Description~
 
-For your final project, we'll be building a Command Line database application.
+Welcome to our adventure finding CLI!  If you are up for an adventure you can choose your adventure type and it's location. Our CLI will return a list of possible trails. This info will include "trail name", "location", "length of trail" and "trail description".
 
-## Project Requirements
+~Install Instructions~
 
-1. Provide a CLI
-2. The CLI must provide access to data from a SQLITE3 database using ActiveRecord.
-3. You should have at minimum three models including one join model. This means you must have a many-to-many relationship.
-3. You should seed your database with data from an API that you hit using a separate adapter class.
-4. The data provided must go at least one level deep, generally by showing the user a list of available data and then being able to drill down into a specific item. i.e If I'm building a library, I should have an option to view all of the books using `Book.all` and then an option to find a book by the id number.
-5. The CLI application can not be a Music CLI application as that is too similar to the other OO Ruby final project. Also please refrain from using Kickstarter as that was used for the scraping 'code along'. Look at the example domains below for inspiration.
-6. Use good OO design patterns. You should be creating and accessing objects - not hashes.
+1.)  Fork lab from github and clone this repository.
 
-## Instructions
+2.)  Open the directory in your terminal.
 
-1. Create a new repository on GitHub for your application, ie: `name-cli-app`.
-2. When you create the CLI app for your assessment, add the spec.md file from this repo to the root directory of the project, commit it to Git and push it up to GitHub.
-3. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-4. Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
-5. Make sure your project checks off each of the above requirements.
-6. Prepare a video demo (narration helps!) describing how a user would interact with your working gem.
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
+3.)  To access the CLI type "ruby bin/run.rb" into your command line.
+
+4.)  Follow the instructions given and "Find an Adventure!!" will provide you with the trails that match your preferences.
+
+~Contributors Guide~
+
+Elizabeth Nicholson & Charlie Stopek and our helpful instructors!
+
+~License Link~
+
+Copyright 2017 Elizabeth Nicholson & Charlie Stopek
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
